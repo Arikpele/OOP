@@ -1,6 +1,6 @@
 public class Auto {
-    private String brand = "default";
-    private String model = "default";
+    private String brand;
+    private String model;
     private double engineVolume;
     private String color;
     private int year;
@@ -16,16 +16,16 @@ public class Auto {
         if (brand == null || brand.equals("") || brand.equals(" ")) {
             this.brand = "default";
         }
-        if (model.equals("Null") || model.equals("") || model.equals(" ")) {
+        if (model==null || model.equals("") || model.equals(" ")) {
             this.model = "default";
         }
-        if (country.equals("Null") || country.equals("") || country.equals(" ")) {
+        if (country==null|| country.equals("") || country.equals(" ")) {
             this.country = "default";
         }
         if (engineVolume <= 0) {
             this.engineVolume = 1.5;
         }
-        if (color.equals("Null") || color.equals("") || color.equals(" ")) {
+        if (color==null|| color.equals("") || color.equals(" ")) {
             this.color = "белого";
         }
         if (year <= 0) {
@@ -34,7 +34,7 @@ public class Auto {
     }
 
     public String toString() {
-        return "ID: | Модель:" + brand + " " + model + "|" + year + " год выпуска |" + "сборка в " + country + "|" + color + " цвет кузова" + "| объем двигателя - " + engineVolume;
+        return "Модель:" + brand + " " + model + "|" + year + " год выпуска |" + "сборка в " + country + "|" + color + " цвет кузова" + "| объем двигателя - " + engineVolume;
     }
 
 }
