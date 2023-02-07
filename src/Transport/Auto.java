@@ -1,12 +1,10 @@
 package Transport;
 
-public class Auto {
-    private final String brand;
-    private final String model;
+public class Auto extends Transport {
+
     private double engineVolume;
-    private String color;
-    private final int year;
-    private final String country;
+
+
     private String gear;
     private final String bodyType;
     private String number;
@@ -40,64 +38,38 @@ public class Auto {
     }
 
 
-    public Auto(String brand,
-                String model,
-                int year,
-                String country,
-                String gear,
-                String color,
-                double engineVolume,
-                String bodyType,
-                String number,
-                int capacity,
-                boolean summerTyres,
-                Key key) {
-
-        if (brand == null || brand.isEmpty() || brand.isBlank()) {
-            this.brand = "default";
-
-        } else {
-            this.brand = brand;
-        }
-        if (model == null || model.isEmpty() || model.isBlank()) {
-            this.model = "default";
-        } else {
-            this.model = model;
-        }
-        if (country == null || country.isEmpty() || country.isBlank()) {
-            this.country = "default";
-        } else {
-            this.country = country;
-        }
-        setEngineVolume(engineVolume);
-        setColor(color);
-        if (year <= 0) {
-            this.year = 2000;
-        } else {
-            this.year = year;
-        }
-        setGear(gear);
-        if (bodyType == null || bodyType.isEmpty()) {
-            bodyType = "седан";
-        }
+    public Auto(String brand, String model, int year, String country, String color, int maxSpeed, double engineVolume, String gear, String bodyType, String number, int capacity, boolean summerTyres, Key key) {
+        super(brand, model, year, country, color, maxSpeed);
+        this.engineVolume = engineVolume;
+        this.gear = gear;
         this.bodyType = bodyType;
-        setNumber(number);
-        if (capacity <= 0) {
-            capacity = 5;
-        }
+        this.number = number;
         this.capacity = capacity;
         this.summerTyres = summerTyres;
-        setKey(key);
+        this.key = key;
+        {
 
+
+
+            setEngineVolume(engineVolume);
+            setGear(gear);
+            if (bodyType == null || bodyType.isEmpty()) {
+                bodyType = "седан";
+            }
+            setNumber(number);
+            if (capacity <= 0) {
+                capacity = 5;
+            }
+
+            this.summerTyres = summerTyres;
+            setKey(key);
+
+        }
     }
 
-    public String getBrand() {
-        return brand;
-    }
 
-    public String getModel() {
-        return model;
-    }
+
+
 
     public double getEngineVolume() {
         return engineVolume;
@@ -110,24 +82,7 @@ public class Auto {
         this.engineVolume = engineVolume;
     }
 
-    public String getColor() {
-        return color;
-    }
 
-    public void setColor(String color) {
-        if (color == null || color.isEmpty() || color.isBlank()) {
-            this.color = "белого";
-        }
-        this.color = color;
-    }
-
-    public int getYear() {
-        return year;
-    }
-
-    public String getCountry() {
-        return country;
-    }
 
     public String getGear() {
         return gear;
@@ -191,9 +146,9 @@ public class Auto {
     }
 
     public String toString() {
-        return "Модель:" + brand + " " + model + "|" + year +
+        return "Модель:" + " |" +
                 " год выпуска |" +
-                "сборка в " + country + "|" + color +
+                "сборка в " + "|" +
                 " цвет кузова" + "| объем двигателя - " + engineVolume +
                 "коробка передач:" + gear + ", " +
                 "Тип кузова" + bodyType + ", " +
