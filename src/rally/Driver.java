@@ -1,14 +1,16 @@
-package Transport;
+package rally;
 
-public abstract class Driver {
+;
+
+public abstract class Driver{
     private String name;
     private boolean driverLicense;
     private int experience;
 
     public Driver(String name, boolean driverLicense, int experience) {
-        this.name = name;
-        this.driverLicense = driverLicense;
-        this.experience = experience;
+        setName(name);
+        setDriverLicense(driverLicense);
+        setExperience(experience);
     }
 
     public String getName() {
@@ -35,8 +37,12 @@ public abstract class Driver {
         this.experience = experience;
     }
 
-    public abstract void startMove();
-    public abstract void finish();
-    public abstract void refill();
+    public abstract void startCar();
+    public abstract void stopCar();
+    public abstract void refillCar();
 
+    @Override
+    public String toString() {
+        return "Водитель " + name;
+    }
 }
