@@ -1,65 +1,71 @@
 package Transport;
 
-public abstract class   Transport {
-    private String brand;
-    private String model;
-    private final int year;
-    private final String country;
-    private String color;
-    private int maxSpeed;
+public abstract class   Transport <T extends Driver>implements Сompeting{
+    private final String brand;
+    private final String model;
+    private double engineVolume;
+    private T driver;
 
-    public Transport(String brand, String model, int year, String country, String color, int maxSpeed) {
+
+    public Transport(String brand, String model, double engineVolume,T driver) {
+        if (brand == null || brand.isEmpty()) {
+            brand = "default";
+        }
         this.brand = brand;
+        if (model == null || model.isEmpty()) {
+            model = "default";
+        }
+
         this.model = model;
-        this.year = year;
-        this.country = country;
-        this.color = color;
-        this.maxSpeed = maxSpeed;
+        setEngineVolume(engineVolume);
+        setDriver(driver);
+
     }
 
     public String getBrand() {
         return brand;
     }
 
-    public void setBrand(String brand) {
-        if (brand == null || color.isEmpty() || color.isBlank()) ;
-
-        this.brand = brand;
-    }
 
     public String getModel() {
         return model;
     }
 
-    public void setModel(String model) {
-        if (model == null || color.isEmpty() || color.isBlank()) ;
-        this.model = model;
+    public double getEngineVolume() {
+        return engineVolume;
     }
 
-    public int getYear() {
-        return year;
-    }
-
-    public String getCountry() {
-        return country;
-    }
-
-    public String getColor() {
-        return color;
-    }
-
-    public void setColor(String color) {
-        if (color == null || color.isEmpty() || color.isBlank()) ;
-        this.color = color;
-    }
-
-    public int getMaxSpeed() {
-        return maxSpeed;
-    }
-
-    public void setMaxSpeed(int maxSpeed) {
-        if (maxSpeed <= 0 || maxSpeed >= 200) {
-            this.maxSpeed = maxSpeed;
+    public void setEngineVolume(double engineVolume) {
+        if (engineVolume <= 0) {
+            engineVolume = 1.6;
         }
+        this.engineVolume = engineVolume;
+    }
+
+    public T getDriver() {
+        return driver;
+    }
+
+    public void setDriver(T driver) {
+        this.driver = driver;
+    }
+
+    public  void startMove() {
+        System.out.println("Автомобиль марки - " + brand + " начал движение");
+    }
+
+    public  void finishMove() {
+        System.out.println("Автомобиль марки - " + brand + " закончил движение");
+    }
+
+    public void printInfo() {
+        System.out.println("Водитель "+driver.getName()+" управляет автомомбилем "+getBrand()+" и учавствует в заезде");
+    }
+    public String toString(){return
+        "Марка - "+brand+
+                "Модель - "+model+
+                "Объем двигателя - "+ engineVolume;
     }
 }
+
+
