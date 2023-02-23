@@ -28,6 +28,14 @@ public class Car extends Transport<DriverA> {
 
     private BodyType bodyType;
 
+    public BodyType getBodyType() {
+        return bodyType;
+    }
+
+    public void setBodyType(BodyType bodyType) {
+        this.bodyType = bodyType;
+    }
+
     public Car(String brand, String model, double engineVolume, DriverA driver) {
         super(brand, model, engineVolume, driver);
     }

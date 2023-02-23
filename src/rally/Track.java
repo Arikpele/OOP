@@ -26,6 +26,13 @@ public class Track extends Transport<DriverB> {
 
     private BodyType bodyType;
 
+    public BodyType getBodyType() {
+        return bodyType;
+    }
+
+    public void setBodyType(BodyType bodyType) {
+        this.bodyType = bodyType;
+    }
 
     public Track(String brand, String model, double engineVolume, DriverB driver) {
         super(brand, model, engineVolume, driver);

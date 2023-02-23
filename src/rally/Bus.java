@@ -8,23 +8,31 @@ public class Bus extends Transport<DriverC> {
         BIG(60, 80),
         VERYBIG(100, 120);
 
-        private final Integer lowbound;
+        private final Integer lowBound;
         private final Integer topBound;
 
-        BodyType(Integer lowbound, Integer topBound) {
-            this.lowbound = lowbound;
+        BodyType(Integer lowBound, Integer topBound) {
+            this.lowBound = lowBound;
             this.topBound = topBound;
         }
 
         @Override
         public String toString() {
-            return String.format("Вместимость: %s %s", (lowbound != null
-                            ? "от " + lowbound + "мест" : ""),
+            return String.format("Вместимость: %s %s", (lowBound != null
+                            ? "от " + lowBound + "мест" : ""),
                     topBound != null ? "до " + topBound + "мест" : "");
         }
     }
 
     private BodyType bodyType;
+
+    public BodyType getBodyType() {
+        return bodyType;
+    }
+
+    public void setBodyType(BodyType bodyType) {
+        this.bodyType = bodyType;
+    }
 
     public Bus(String brand, String model, double engineVolume, DriverC driver) {
         super(brand, model, engineVolume, driver);
