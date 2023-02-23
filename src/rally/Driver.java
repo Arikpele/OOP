@@ -2,7 +2,7 @@ package rally;
 
 ;
 
-public abstract class Driver{
+public abstract class Driver {
     private String name;
     private boolean driverLicense;
     private int experience;
@@ -38,7 +38,9 @@ public abstract class Driver{
     }
 
     public abstract void startCar();
+
     public abstract void stopCar();
+
     public abstract void refillCar();
 
     @Override
