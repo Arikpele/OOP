@@ -1,6 +1,6 @@
 package rally;
 
-public class DriverC extends Driver{
+public class DriverC extends Driver {
     public DriverC(String name, boolean driverLicense, int experience) {
         super(name, driverLicense, experience);
     }

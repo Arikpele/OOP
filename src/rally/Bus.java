@@ -75,4 +75,8 @@ public class Bus extends Transport<DriverC> {
             System.out.println(bodyType);
         }
     }
+
+    public void testCar() {
+
+    }
 }

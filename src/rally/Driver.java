@@ -1,5 +1,7 @@
 package rally;
 
+import exception.NoDriveLicenseException;
+
 ;
 
 public abstract class Driver {
@@ -46,5 +48,11 @@ public abstract class Driver {
     @Override
     public String toString() {
         return "Водитель " + name;
+    }
+
+    public void check() throws NoDriveLicenseException {
+        if (!driverLicense) {
+            throw new NoDriveLicenseException("Необходимо указать тип прав!", this);
+        }
     }
 }

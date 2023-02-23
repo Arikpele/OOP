@@ -1,7 +1,9 @@
 package rally;
 
+import exception.NoDriveLicenseException;
+
 public class Main {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws NoDriveLicenseException {
 
         DriverA john = new DriverA("John", true, 5);
         DriverB smith = new DriverB("Smith", true, 10);
@@ -22,10 +24,23 @@ public class Main {
         Track fiat = new Track("Fiat", "Drive", 5, smith);
         Track hyundai = new Track("Hyundai", "Pride", 4.3, smith);
 
+        lada.testCar();
         driverAnnounce(bmw);
         driverAnnounce(gazel);
     }
-    public static void driverAnnounce (Transport<?> transport){
+
+    public static void check(Driver... driver) {
+        for (Driver driver1 : driver) {
+            try {
+                driver1.check();
+                System.out.println(driver1.isDriverLicense());
+            } catch (NoDriveLicenseException e) {
+                System.out.println("Необходимо указать тип прав");
+            }
+        }
+    }
+
+    public static void driverAnnounce(Transport<?> transport) {
         System.out.println(transport.getDriver() + " управляет автомобилем " + transport.getBrand() + " " + transport.getModel() + " и будет участвовать в заезде");
     }
 

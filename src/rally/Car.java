@@ -77,6 +77,15 @@ public class Car extends Transport<DriverA> {
             System.out.println(bodyType);
         }
     }
+
+    @Override
+    public void testCar() {
+
+    }
+
+    public void testCard() {
+        System.out.println("Пройти диагностику");
+    }
 }
 
 
