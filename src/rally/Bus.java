@@ -37,8 +37,9 @@ public class Bus extends Transport<DriverC> {
         this.bodyType = bodyType;
     }
 
-    public Bus(String brand, String model, double engineVolume, DriverC driver) {
+    public Bus(String brand, String model, double engineVolume, DriverC driver, BodyType bodyType) {
         super(brand, model, engineVolume, driver);
+        this.bodyType = bodyType;
     }
 
     @Override
