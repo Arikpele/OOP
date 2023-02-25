@@ -1,6 +1,6 @@
 package rally;
 
-import exception.NoDriveLicenseException;
+import exception.TransportTypeException;
 
 ;
 
@@ -50,9 +50,4 @@ public abstract class Driver {
         return "Водитель " + name;
     }
 
-    public void check() throws NoDriveLicenseException {
-        if (!driverLicense) {
-            throw new NoDriveLicenseException("Необходимо указать тип прав!", this);
-        }
-    }
 }

@@ -1,5 +1,7 @@
 package rally;
 
+import exception.TransportTypeException;
+
 public abstract class Transport<T extends Driver> implements Competing {
 
     private String brand;
@@ -84,5 +86,5 @@ public abstract class Transport<T extends Driver> implements Competing {
 
     public abstract void printType();
 
-    public abstract void testCar();
+    public abstract void testCar() throws TransportTypeException;
 }
