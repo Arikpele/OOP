@@ -1,5 +1,7 @@
 package rally;
 
+import exception.TransportTypeException;
+
 ;
 
 public abstract class Driver {
@@ -47,4 +49,5 @@ public abstract class Driver {
     public String toString() {
         return "Водитель " + name;
     }
+
 }

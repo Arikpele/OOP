@@ -76,4 +76,8 @@ public class Track extends Transport<DriverB> {
             System.out.println(bodyType);
         }
     }
+
+    public void testCar() {
+        System.out.println("пройди диагностику");
+    }
 }

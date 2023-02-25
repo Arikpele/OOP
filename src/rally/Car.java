@@ -78,4 +78,11 @@ public class Car extends Transport<DriverA> {
             System.out.println(bodyType);
         }
     }
+
+
+
+
+    public void testCar() {
+        System.out.println("Пройти диагностику");
+    }
 }

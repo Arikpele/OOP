@@ -1,7 +1,9 @@
 package rally;
 
+import exception.TransportTypeException;
+
 public class Main {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws TransportTypeException {
 
         DriverA john = new DriverA("John", true, 5);
         DriverB smith = new DriverB("Smith", true, 10);
@@ -22,10 +24,17 @@ public class Main {
         Track fiat = new Track("Fiat", "Drive", 5, smith, Track.BodyType.N3);
         Track hyundai = new Track("Hyundai", "Pride", 4.3, smith, Track.BodyType.N1);
 
-        driverAnnounce(bmw);
-        driverAnnounce(gazel);
+        lada.testCar();
+     //   driverAnnounce(bmw);
+      //  driverAnnounce(gazel);
+        gazel.testCar();
+        gaz.testCar();
     }
-    public static void driverAnnounce (Transport<?> transport){
+
+
+
+
+       public static void driverAnnounce(Transport<?> transport) {
         System.out.println(transport.getDriver() + " управляет автомобилем " + transport.getBrand() + " " + transport.getModel() + " и будет участвовать в заезде");
     }
 

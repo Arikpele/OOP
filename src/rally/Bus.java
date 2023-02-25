@@ -1,6 +1,9 @@
 package rally;
 
+import exception.TransportTypeException;
+
 public class Bus extends Transport<DriverC> {
+
     public enum BodyType {
         VERYSMALL(null, 10),
         SMALL(null, 25),
@@ -75,5 +78,10 @@ public class Bus extends Transport<DriverC> {
         } else {
             System.out.println(bodyType);
         }
+    }
+
+    public void testCar() throws TransportTypeException {
+        throw new TransportTypeException("Автобусы диагностику проходить не должны");
+
     }
 }
