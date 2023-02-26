@@ -51,6 +51,17 @@ public class Main {
         cars.addCar(fiat);
         cars.addCar(hyundai);
 
+
+        Mechanics<Car> ivanovIvan = new Mechanics<>("Ivanov Ivan", "Sever");
+        Mechanics<Car> sidorovSidor = new Mechanics<>("Sidorov Sidor", "Vostok");
+        Mechanics<Car> petrovPetr = new Mechanics<>("Petrov Petr", "Zapad");
+        Mechanics<Bus> sergeevSergay = new Mechanics<>("Sergeev Sergay", "motor");
+        Mechanics<Bus> valentinovValentin = new Mechanics<>("Valentinov Valentin", "Star");
+        Mechanics<Bus> alexandrovAlexander = new Mechanics<>("alexandrov Alexander", "Alarm");
+        Mechanics<Track> pavlovichPavel = new Mechanics<>("pavlovich Pavel", "Sibir");
+        Mechanics<Track> morozovMoroz = new Mechanics<>("morozov Moroz", "Most");
+        Mechanics<Track> vladimirovVladimir = new Mechanics<>("vladimirov Vladimir", "Moscow");
+
     }
 
 
