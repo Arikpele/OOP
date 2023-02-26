@@ -2,9 +2,11 @@ package rally;
 
 import exception.TransportTypeException;
 
+
 public class Main {
     public static void main(String[] args) throws TransportTypeException {
 
+        ListCars cars = new ListCars();
         DriverA john = new DriverA("John", true, 5);
         DriverB smith = new DriverB("Smith", true, 10);
         DriverC alex = new DriverC("Alex", true, 7);
@@ -24,17 +26,33 @@ public class Main {
         Track fiat = new Track("Fiat", "Drive", 5, smith, Track.BodyType.N3);
         Track hyundai = new Track("Hyundai", "Pride", 4.3, smith, Track.BodyType.N1);
 
-        lada.testCar();
-     //   driverAnnounce(bmw);
-      //  driverAnnounce(gazel);
-        gazel.testCar();
-        gaz.testCar();
+        //  lada.testCar();
+        //   driverAnnounce(bmw);
+        //  driverAnnounce(gazel);
+        //  gazel.testCar();
+        //  gaz.testCar();
+        lada.setBodyType(Car.BodyType.HATCHBACK);
+        bmw.setBodyType(Car.BodyType.COUPE);
+        audi.setBodyType(Car.BodyType.MINIVAN);
+        lexus.setBodyType(Car.BodyType.SUV);
+
+        cars.addCar(lada);
+        cars.addCar(audi);
+        cars.addCar(bmw);
+        cars.addCar(lexus);
+        cars.addCar(gaz);
+        cars.addCar(mercedes);
+        cars.addCar(volkswagen);
+        cars.addCar(ford);
+        cars.addCar(gazel);
+        cars.addCar(volvo);
+        cars.addCar(fiat);
+        cars.addCar(hyundai);
+
     }
 
 
-
-
-       public static void driverAnnounce(Transport<?> transport) {
+    public static void driverAnnounce(Transport<?> transport) {
         System.out.println(transport.getDriver() + " управляет автомобилем " + transport.getBrand() + " " + transport.getModel() + " и будет участвовать в заезде");
     }
 
