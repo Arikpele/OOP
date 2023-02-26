@@ -31,6 +31,8 @@ public class Main {
         //  driverAnnounce(gazel);
         //  gazel.testCar();
         //  gaz.testCar();
+
+
         lada.setBodyType(Car.BodyType.HATCHBACK);
         bmw.setBodyType(Car.BodyType.COUPE);
         audi.setBodyType(Car.BodyType.MINIVAN);
