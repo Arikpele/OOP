@@ -36,4 +36,10 @@ public class Mechanics<T extends Transport> {
                 " Ремонту ТС: " + car.getBrand() +
                 " " + car.getModel());
     }
+
+    public void listMechanis() {
+        for (int i = 0; i < mechanics.size(); i++) {
+            System.out.println(mechanics.get(i));
+        }
+    }
 }

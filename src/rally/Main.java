@@ -7,6 +7,8 @@ public class Main {
     public static void main(String[] args) throws TransportTypeException {
 
         ListCars cars = new ListCars();
+
+
         DriverA john = new DriverA("John", true, 5);
         DriverB smith = new DriverB("Smith", true, 10);
         DriverC alex = new DriverC("Alex", true, 7);
@@ -51,6 +53,8 @@ public class Main {
         cars.addCar(fiat);
         cars.addCar(hyundai);
 
+        System.out.println("Количество машин в списке - " + cars.getAllTransport().size());
+
 
         Mechanics<Car> ivanovIvan = new Mechanics<>("Ivanov Ivan", "Sever");
         Mechanics<Car> sidorovSidor = new Mechanics<>("Sidorov Sidor", "Vostok");
@@ -61,6 +65,17 @@ public class Main {
         Mechanics<Track> pavlovichPavel = new Mechanics<>("pavlovich Pavel", "Sibir");
         Mechanics<Track> morozovMoroz = new Mechanics<>("morozov Moroz", "Most");
         Mechanics<Track> vladimirovVladimir = new Mechanics<>("vladimirov Vladimir", "Moscow");
+
+
+        lada.setMechanics(sidorovSidor);
+        gazel.setMechanics(sergeevSergay);
+        bmw.setMechanics(petrovPetr);
+        System.out.println(lada.getMechanics().size());
+        System.out.println(lada.getMechanics().get(0));
+        lada.getAllTeam();
+        audi.setMechanics(ivanovIvan);
+        mercedes.setMechanics(alexandrovAlexander);
+        ivanovIvan.listMechanis();
 
     }
 
