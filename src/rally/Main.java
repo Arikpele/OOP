@@ -2,6 +2,8 @@ package rally;
 
 import exception.TransportTypeException;
 
+import java.util.List;
+
 
 public class Main {
     public static void main(String[] args) throws TransportTypeException {
@@ -22,20 +24,20 @@ public class Main {
         DriverB smith = new DriverB("Smith", true, 10);
         DriverC alex = new DriverC("Alex", true, 7);
 
-        Car lada = new Car("Lada", "Granta", 1.6, john, Car.BodyType.SEDAN, ivanovIvan);
-        Car audi = new Car("Audi", "A8 50 L TDI quattro", 5, john, Car.BodyType.MINIVAN, ivanovIvan);
-        Car bmw = new Car("BMW", "Z8", 4, john, Car.BodyType.SEDAN, sidorovSidor);
-        Car lexus = new Car("Lexus", "IS 350", 3.5, john, Car.BodyType.SUV, petrovPetr);
+        Car lada = new Car("Lada", "Granta", 1.6, john, Car.BodyType.SEDAN, (List<Mechanic>) ivanovIvan);
+        Car audi = new Car("Audi", "A8 50 L TDI quattro", 5, john, Car.BodyType.MINIVAN, (List<Mechanic>) ivanovIvan);
+        Car bmw = new Car("BMW", "Z8", 4, john, Car.BodyType.SEDAN, (List<Mechanic>) sidorovSidor);
+        Car lexus = new Car("Lexus", "IS 350", 3.5, john, Car.BodyType.SUV, (List<Mechanic>) petrovPetr);
 
-        Bus gaz = new Bus("Газ", "Сибирь", 3, alex, Bus.BodyType.VERYSMALL, sergeevSergay);
-        Bus mercedes = new Bus("Mercedes", "Viano", 3.8, alex, Bus.BodyType.SMALL, sergeevSergay);
-        Bus volkswagen = new Bus("Volkswagen", "Transporter", 3.5, alex, Bus.BodyType.BIG, valentinovValentin);
-        Bus ford = new Bus("Ford", "Escaper", 2.8, alex, Bus.BodyType.VERYBIG, alexandrovAlexander);
+        Bus gaz = new Bus("Газ", "Сибирь", 3, alex, Bus.BodyType.VERYSMALL, (List<Mechanic>) sergeevSergay);
+        Bus mercedes = new Bus("Mercedes", "Viano", 3.8, alex, Bus.BodyType.SMALL,  (List<Mechanic>) sergeevSergay);
+        Bus volkswagen = new Bus("Volkswagen", "Transporter", 3.5, alex, Bus.BodyType.BIG,(List<Mechanic>) valentinovValentin);
+        Bus ford = new Bus("Ford", "Escaper", 2.8, alex, Bus.BodyType.VERYBIG,(List<Mechanic>) alexandrovAlexander);
 
-        Track gazel = new Track("Газель", "Урал", 3, smith, Track.BodyType.N1, petrovPetr);
-        Track volvo = new Track("Volvo ", "Siber", 6.5, smith, Track.BodyType.N2, pavlovichPavel);
-        Track fiat = new Track("Fiat", "Drive", 5, smith, Track.BodyType.N3, morozovMoroz);
-        Track hyundai = new Track("Hyundai", "Pride", 4.3, smith, Track.BodyType.N1, vladimirovVladimir);
+        Track gazel = new Track("Газель", "Урал", 3, smith, Track.BodyType.N1,(List<Mechanic>) petrovPetr);
+        Track volvo = new Track("Volvo ", "Siber", 6.5, smith, Track.BodyType.N2,(List<Mechanic>) pavlovichPavel);
+        Track fiat = new Track("Fiat", "Drive", 5, smith, Track.BodyType.N3,(List<Mechanic>) morozovMoroz);
+        Track hyundai = new Track("Hyundai", "Pride", 4.3, smith, Track.BodyType.N1,(List<Mechanic>) vladimirovVladimir);
 
 
         //  lada.testCar();

@@ -18,12 +18,12 @@ public abstract class Transport<T extends Driver> implements Competing {
     private static final double DEFAULT_ENGINE_VALUE = 1.5;
 
 
-    public Transport(String brand, String model, double engineVolume, T driver,Mechanic mechanics) {
+    public Transport(String brand, String model, double engineVolume, T driver,List<Mechanic> mechanics) {
         setBrand(brand);
         setModel(model);
         setEngineVolume(engineVolume);
         setDriver(driver);
-        setMechanics(mechanics);
+        this.mechanics = mechanics;
     }
 
     public List<Mechanic> getMechanics() {

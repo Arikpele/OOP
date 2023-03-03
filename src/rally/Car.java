@@ -39,7 +39,7 @@ public class Car extends Transport<DriverA> {
         this.bodyType = bodyType;
     }
 
-    public Car(String brand, String model, double engineVolume, DriverA driver,  BodyType bodyType, Mechanic mechanics) {
+    public Car(String brand, String model, double engineVolume, DriverA driver, BodyType bodyType, List<Mechanic> mechanics) {
         super(brand, model, engineVolume, driver, mechanics);
         this.bodyType = bodyType;
     }

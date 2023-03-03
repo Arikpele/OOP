@@ -37,7 +37,7 @@ public class Track extends Transport<DriverB> {
         this.bodyType = bodyType;
     }
 
-    public Track(String brand, String model, double engineVolume, DriverB driver,  BodyType bodyType, Mechanic mechanics) {
+    public Track(String brand, String model, double engineVolume, DriverB driver,  BodyType bodyType,List<Mechanic> mechanics) {
         super(brand, model, engineVolume, driver, mechanics);
         this.bodyType = bodyType;
     }
