@@ -1,5 +1,8 @@
 package rally;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Car extends Transport<DriverA> {
     public enum BodyType {
         SEDAN("Седан"),
@@ -36,8 +39,8 @@ public class Car extends Transport<DriverA> {
         this.bodyType = bodyType;
     }
 
-    public Car(String brand, String model, double engineVolume, DriverA driver, BodyType bodyType) {
-        super(brand, model, engineVolume, driver);
+    public Car(String brand, String model, double engineVolume, DriverA driver,  BodyType bodyType, Mechanic mechanics) {
+        super(brand, model, engineVolume, driver, mechanics);
         this.bodyType = bodyType;
     }
 
@@ -85,4 +88,6 @@ public class Car extends Transport<DriverA> {
     public void testCar() {
         System.out.println("Пройти диагностику");
     }
+    List<Servicestation> list=new ArrayList<>();
+
 }

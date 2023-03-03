@@ -2,6 +2,9 @@ package rally;
 
 import exception.TransportTypeException;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Bus extends Transport<DriverC> {
 
     public enum BodyType {
@@ -37,8 +40,8 @@ public class Bus extends Transport<DriverC> {
         this.bodyType = bodyType;
     }
 
-    public Bus(String brand, String model, double engineVolume, DriverC driver, BodyType bodyType) {
-        super(brand, model, engineVolume, driver);
+    public Bus(String brand, String model, double engineVolume, DriverC driver,  BodyType bodyType,Mechanic mechanics) {
+        super(brand, model, engineVolume, driver, mechanics);
         this.bodyType = bodyType;
     }
 

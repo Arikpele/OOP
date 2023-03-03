@@ -1,5 +1,8 @@
 package rally;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Track extends Transport<DriverB> {
     public enum BodyType {
         N1(null, 3.5f),
@@ -34,11 +37,10 @@ public class Track extends Transport<DriverB> {
         this.bodyType = bodyType;
     }
 
-    public Track(String brand, String model, double engineVolume, DriverB driver,  BodyType bodyType) {
-        super(brand, model, engineVolume, driver);
+    public Track(String brand, String model, double engineVolume, DriverB driver,  BodyType bodyType, Mechanic mechanics) {
+        super(brand, model, engineVolume, driver, mechanics);
         this.bodyType = bodyType;
     }
-
 
     @Override
     public void startCar() {
