@@ -13,13 +13,15 @@ public class Servicestation<T extends Transport> {
 
     public void addCar1(T car) {
         queue.offer(car);
-        System.out.println("добавить авто в очередь");
+
+        System.out.println("добавить авто в очередь: - "+car.getBrand());
     }
 
     public void osmotr() {
         T car = queue.poll();
         if (car != null) {
-            System.out.println("провести техосмотр авто");
+
+            System.out.println("провести техосмотр авто: - "+car.getBrand());
             osmotr();
         } else {
             System.out.println("Очередь закончилась");

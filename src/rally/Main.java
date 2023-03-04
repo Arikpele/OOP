@@ -72,7 +72,7 @@ public class Main {
         //System.out.println(lada.getMechanics());
         nameDriver(lada);
         nameDriver(mercedes);
-        Servicestation<Transport> auto = new <Transport>Servicestation();
+Servicestation auto=new Servicestation<>();
         auto.addCar1(lada);
         auto.addCar1(audi);
         auto.addCar1(bmw);
