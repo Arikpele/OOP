@@ -1,6 +1,9 @@
 package rally;
 
 import exception.TransportTypeException;
+import java.util.ArrayList;
+import java.util.List;
+
 
 public abstract class Transport<T extends Driver> implements Competing {
 
@@ -9,14 +12,22 @@ public abstract class Transport<T extends Driver> implements Competing {
     private double engineVolume;
     private T driver;
 
+    private  List<Mechanic> mechanics;
+
     private static final String DEFAULT_VALUE = "default";
     private static final double DEFAULT_ENGINE_VALUE = 1.5;
 
-    public Transport(String brand, String model, double engineVolume, T driver) {
+
+    public Transport(String brand, String model, double engineVolume, T driver,List<Mechanic> mechanics) {
         setBrand(brand);
         setModel(model);
         setEngineVolume(engineVolume);
         setDriver(driver);
+        this.mechanics = mechanics;
+    }
+
+    public List<Mechanic> getMechanics() {
+        return mechanics;
     }
 
     public double getEngineVolume() {
@@ -87,4 +98,14 @@ public abstract class Transport<T extends Driver> implements Competing {
     public abstract void printType();
 
     public abstract void testCar() throws TransportTypeException;
+
+    public void getAllTeam() {
+        System.out.println("У транспорта: " + getBrand() +
+                " " + getModel() + " за рулем " +
+                getDriver() + ", а обслуживает: "+getMechanics());
+    }
+    public void setMechanics(Mechanic mechanics) {
+        this.mechanics.add(mechanics);
+    }
+
 }
