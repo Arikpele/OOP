@@ -88,6 +88,4 @@ public class Car extends Transport<DriverA> {
     public void testCar() {
         System.out.println("Пройти диагностику");
     }
-    List<Servicestation> list=new ArrayList<>();
-
 }
