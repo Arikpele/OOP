@@ -1,20 +1,23 @@
 package rally;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class ListCars {
-    private final ArrayList<Transport> allTransport;
+
+    private final List<Transport> allTransport = new ArrayList<>();
 
     public ListCars() {
-        this.allTransport = new ArrayList<Transport>();
     }
+
+    public List<Transport> getAllTransport() {
+        return allTransport;
+    }
+
 
     public void addCar(Transport transport) {
         this.allTransport.add(transport);
     }
 
-    public ArrayList<Transport> getAllTransport() {
-        return new ArrayList<>(allTransport);
-    }
-}
 
+}

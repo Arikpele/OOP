@@ -2,6 +2,9 @@ package rally;
 
 import exception.TransportTypeException;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Bus extends Transport<DriverC> {
 
     public enum BodyType {
@@ -37,19 +40,12 @@ public class Bus extends Transport<DriverC> {
         this.bodyType = bodyType;
     }
 
-    public Bus(String brand, String model, double engineVolume, DriverC driver, BodyType bodyType) {
+    public Bus(String brand, String model, double engineVolume, DriverC driver) {
         super(brand, model, engineVolume, driver);
-        this.bodyType = bodyType;
     }
 
-    @Override
-    public void startCar() {
-        super.startCar();
-    }
 
-    public void stopCar() {
-        super.stopCar();
-    }
+
 
 
     @Override
@@ -68,9 +64,7 @@ public class Bus extends Transport<DriverC> {
         System.out.println("Максимальная скорость у " + getBrand() + " " + getModel() + " " + ": " + maxSpeed + "км");
     }
 
-    public void pitStop() {
-        super.pitStop();
-    }
+
 
     public void printType() {
         if (bodyType == null) {
@@ -80,8 +74,8 @@ public class Bus extends Transport<DriverC> {
         }
     }
 
-    public void testCar() throws TransportTypeException {
-        throw new TransportTypeException("Автобусы диагностику проходить не должны");
+    public void testCar()  {
+        System.out.println("Автобусы диагностику проходить не должны");
 
     }
 }

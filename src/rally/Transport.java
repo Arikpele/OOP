@@ -1,22 +1,25 @@
 package rally;
 
-import exception.TransportTypeException;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Objects;
 
 public abstract class Transport<T extends Driver> implements Competing {
 
-    private String brand;
-    private String model;
+    private final String brand;
+    private final String model;
     private double engineVolume;
     private T driver;
+    private Map<Transport, Mechanic> mechanics = new HashMap<>();
 
-    private static final String DEFAULT_VALUE = "default";
     private static final double DEFAULT_ENGINE_VALUE = 1.5;
 
     public Transport(String brand, String model, double engineVolume, T driver) {
-        setBrand(brand);
-        setModel(model);
+        this.brand = brand;
+        this.model = model;
         setEngineVolume(engineVolume);
         setDriver(driver);
+        this.mechanics = new HashMap<>();
     }
 
     public double getEngineVolume() {
@@ -40,22 +43,6 @@ public abstract class Transport<T extends Driver> implements Competing {
     }
 
 
-    public void setBrand(String brand) {
-        if (brand == null || brand.isEmpty() || brand.isBlank()) {
-            this.brand = DEFAULT_VALUE;
-        } else {
-            this.brand = brand;
-        }
-    }
-
-    public void setModel(String model) {
-        if (model == null || model.isEmpty() || model.isBlank()) {
-            this.model = DEFAULT_VALUE;
-        } else {
-            this.model = model;
-        }
-    }
-
     public T getDriver() {
         return driver;
     }
@@ -64,13 +51,6 @@ public abstract class Transport<T extends Driver> implements Competing {
         this.driver = driver;
     }
 
-    @Override
-    public String toString() {
-        return "Машины: " +
-                "Бренд = " + brand +
-                ", модель = " + model +
-                ", мощность двигателя = " + engineVolume;
-    }
 
     public void startCar() {
         System.out.println(getBrand() + " " + model + ": начать движение");
@@ -86,5 +66,32 @@ public abstract class Transport<T extends Driver> implements Competing {
 
     public abstract void printType();
 
-    public abstract void testCar() throws TransportTypeException;
+    public abstract void testCar();
+
+    public Map getMechanics() {
+        return mechanics;
+    }
+
+    public void setMechanics(Transport transport, Mechanic mechanic) {
+        this.mechanics.put(transport, mechanic);
+    }
+
+
+    public void getAllTeam(Transport transport) {
+        System.out.println("У транспорта: " + getBrand() + " " + getModel() + " за рулем " + getDriver() + ", а обслуживает: " + getMechanics().get(transport));
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Transport<?> transport = (Transport<?>) o;
+        return Double.compare(transport.engineVolume, engineVolume) == 0 && Objects.equals(brand, transport.brand) && Objects.equals(model, transport.model) && Objects.equals(driver, transport.driver);
+    }
+
+    @Override
+    public int hashCode() {
+
+        return Objects.hash(brand, model, engineVolume, driver);
+    }
 }
