@@ -80,26 +80,25 @@ public class Main {
         hyundai.setMechanics(sidorovSidor);
 
 
-        Map<Transport, List<Mechanic>> map = new HashMap<>();
-        for (Transport transport : transports) {
-            map.put(transport, transport.getMechanics());
-        }
-        for (List<Mechanic> value : map.values()) {
-            System.out.println(value);
-        }
+//        Map<Transport, List<Mechanic>> map = new HashMap<>();
+//        for (Transport transport : transports) {
+//            map.put(transport, transport.getMechanics());
+//        }
+//        for (List<Mechanic> value : map.values()) {
+//            System.out.println(value);
+//        }
 
 
-//
-//        Set<Driver> driverSet = new HashSet<>();
-//        for (Driver driver : drivers) {
-//            driverSet.add(driver);
-//        }
-//        Iterator<Driver> iterator= driverSet.iterator();
-//        while (iterator.hasNext()) {
-//            Driver driver = iterator.next();
-//            System.out.println(driver);
-//        }
-//    }
+
+        Set<Driver> driverSet = new HashSet<>();
+        for (Driver driver : drivers) {
+            driverSet.add(driver);
+        }
+        Iterator<Driver> iterator= driverSet.iterator();
+        while (iterator.hasNext()) {
+            Driver driver = iterator.next();
+            System.out.println(driver);
+        }
 
 
 //    public static void driverAnnounce(Transport<?> transport) {
