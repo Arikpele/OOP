@@ -14,7 +14,6 @@ public class ListCars {
         return allTransport;
     }
 
-
     public void addCar(Transport transport) {
         this.allTransport.add(transport);
     }

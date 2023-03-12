@@ -1,8 +1,7 @@
 package rally;
 
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Objects;
+
+import java.util.*;
 
 public abstract class Transport<T extends Driver> implements Competing {
 
@@ -10,7 +9,7 @@ public abstract class Transport<T extends Driver> implements Competing {
     private final String model;
     private double engineVolume;
     private T driver;
-    private Map<Transport, Mechanic> mechanics = new HashMap<>();
+    private List<Mechanic> mechanics;
 
     private static final double DEFAULT_ENGINE_VALUE = 1.5;
 
@@ -19,7 +18,7 @@ public abstract class Transport<T extends Driver> implements Competing {
         this.model = model;
         setEngineVolume(engineVolume);
         setDriver(driver);
-        this.mechanics = new HashMap<>();
+        this.mechanics = new ArrayList<>();
     }
 
     public double getEngineVolume() {
@@ -68,30 +67,35 @@ public abstract class Transport<T extends Driver> implements Competing {
 
     public abstract void testCar();
 
-    public Map getMechanics() {
+    public List<Mechanic> getMechanics() {
         return mechanics;
     }
 
-    public void setMechanics(Transport transport, Mechanic mechanic) {
-        this.mechanics.put(transport, mechanic);
+    public void setMechanics(Mechanic mechanics) {
+        this.mechanics.add(mechanics);
     }
 
-
     public void getAllTeam(Transport transport) {
-        System.out.println("У транспорта: " + getBrand() + " " + getModel() + " за рулем " + getDriver() + ", а обслуживает: " + getMechanics().get(transport));
+        System.out.println("У транспорта: " + getBrand() + " " +
+                getModel() + " за рулем " + getDriver() + "," +
+                "а обслуживает: " + getMechanics());
     }
 
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        Transport<?> transport = (Transport<?>) o;
-        return Double.compare(transport.engineVolume, engineVolume) == 0 && Objects.equals(brand, transport.brand) && Objects.equals(model, transport.model) && Objects.equals(driver, transport.driver);
+        Transport transport = (Transport) o;
+        return Objects.equals(brand, transport.brand) &&
+                Objects.equals(model, transport.model) &&
+                Objects.equals(engineVolume, transport.engineVolume) &&
+                Objects.equals(driver, transport.driver) &&
+                Objects.equals(mechanics, transport.mechanics);
     }
 
     @Override
     public int hashCode() {
-
-        return Objects.hash(brand, model, engineVolume, driver);
+        return Objects.hash(brand, model, engineVolume, driver, mechanics);
     }
+
 }

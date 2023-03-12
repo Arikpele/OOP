@@ -1,5 +1,7 @@
 package rally;
 
+import java.util.Objects;
+
 public class Car extends Transport<DriverA> {
     @Override
     public void bestLap() {
@@ -52,7 +54,6 @@ public class Car extends Transport<DriverA> {
     }
 
 
-
     public void printType() {
         if (bodyType == null) {
             System.out.println("Данных по транспортному средству недостаточно");
@@ -62,7 +63,19 @@ public class Car extends Transport<DriverA> {
     }
 
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        if (!super.equals(o)) return false;
+        Car car = (Car) o;
+        return Objects.equals(bodyType, car.bodyType);
+    }
 
+    @Override
+    public int hashCode() {
+        return Objects.hash(super.hashCode(), bodyType);
+    }
 
     public void testCar() {
         System.out.println("Пройти диагностику");

@@ -4,6 +4,7 @@ import exception.TransportTypeException;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 public class Bus extends Transport<DriverC> {
 
@@ -44,10 +45,6 @@ public class Bus extends Transport<DriverC> {
         super(brand, model, engineVolume, driver);
     }
 
-
-
-
-
     @Override
     public void bestLap() {
         int maxBound = 15;
@@ -65,7 +62,6 @@ public class Bus extends Transport<DriverC> {
     }
 
 
-
     public void printType() {
         if (bodyType == null) {
             System.out.println("Данных по транспортному средству недостаточно");
@@ -74,8 +70,22 @@ public class Bus extends Transport<DriverC> {
         }
     }
 
-    public void testCar()  {
+    public void testCar() {
         System.out.println("Автобусы диагностику проходить не должны");
 
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        if (!super.equals(o)) return false;
+        Bus bus = (Bus) o;
+        return Objects.equals(bodyType, bus.bodyType);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(super.hashCode(), bodyType);
     }
 }

@@ -2,6 +2,7 @@ package rally;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 public class Track extends Transport<DriverB> {
     public enum BodyType {
@@ -78,6 +79,20 @@ public class Track extends Transport<DriverB> {
         } else {
             System.out.println(bodyType);
         }
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        if (!super.equals(o)) return false;
+        Track track = (Track) o;
+        return Objects.equals(bodyType, track.bodyType);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(super.hashCode(), bodyType);
     }
 
     public void testCar() {
